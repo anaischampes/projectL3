@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAVING COFFEE?</title>
+    <link rel="icon" type="image/png" href="OIP.jpeg"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/bbh-sans-hegarty@latest/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+            font-family: "BBH Sans Hegarty", sans-serif;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .center-container {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .center-text {
+            color: rgb(243, 231, 10);
+            font-size: clamp(10rem, 15vw, 15rem);
+            font-weight: bold;
+            text-shadow: 0 0 10px black;
+            text-align: center;
+            text-transform: uppercase;
+            margin: 0 0 2rem 0;
+        }
+
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none; 
+            border: none;
+            font-size: 2.5rem;
+            color: rgb(243, 231, 10);
+            cursor: pointer;
+            z-index: 3;
+        }
+
+        .menu-button:hover {
+            color: #ffffff;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            color: white;
+            padding: 2rem;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            transition: right 0.3s ease;
+            z-index: 3;
+        }
+
+        .side-menu.open {
+            right: 0;
+        }
+
+        .side-menu ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .side-menu li {
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .side-menu li:hover {
+            text-decoration: underline;
+        }
+
+        /* --- CROIX POUR FERMER LE MENU --- */
+        .close-menu {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #fff;
+            z-index: 999;
+            line-height: 1;
+            border: none;
+            background: transparent;
+            padding: 0;
+        }
+        .close-menu:hover {
+            color: #ff6b6b;
+        }
+
+        /* ----------- ABOUT BUTTON ----------- */
+        .about-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.7);
+            border: 2px solid rgb(243, 231, 10);
+            color: rgb(243, 231, 10);
+            font-size: 1.7rem;
+            cursor: pointer;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-button:hover {
+            background: rgba(0,0,0,0.9);
+        }
+
+        /* ----------- ABOUT MODAL ----------- */
+        .about-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: 6;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-content {
+            background: rgb(243, 231, 10); /* même jaune */
+            color: black;
+            padding: 30px;
+            width: min(90%, 500px);
+            border-radius: 12px;
+            position: relative;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .about-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        .about-close:hover {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Background video -->
+    <video src="vidéo café.mp4" autoplay muted loop></video>
+
+    <!-- Centered text -->
+    <div class="center-container">
+        <h1 class="center-text">Craving coffee?</h1>
+    </div>
+
+    <!-- Button to open menu -->
+    <button class="menu-button" id="menuButton">&gt;</button>
+
+    <!-- Side menu -->
+    <div class="side-menu" id="sideMenu">
+        <span class="close-menu" id="closeMenu">&times;</span>
+        <h2>CITIES</h2>
+        <ul>
+            <li class="city" data-city="paris">PARIS</li>
+        </ul>
+    </div>
+
+
+    <!-- ----------- ABOUT BUTTON ----------- -->
+    <button class="about-button" id="aboutButton" title="About me">
+        <i class="fas fa-user"></i>
+    </button>
+
+    <!-- ----------- ABOUT POPUP ----------- -->
+    <div class="about-modal" id="aboutModal">
+        <div class="about-content">
+            <span class="about-close" id="closeAbout">&times;</span>
+            <h2>About me</h2>
+            <p>Passionate about coffee, when I moved to Paris, I was eager to explore every coffee shop the city had to offer. I soon realized it was an impossible task: new places open every week, and it can get quite expensive! To remember each experience, I created this page to document every visit and share them with my friends and family!</p>
+            <p>Do not hesitate to send recommendations at : <strong>anaischampes@gmail.com</strong></p>
+        </div>
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="index.js"></script>
+
+    <!-- Script pour ouvrir/fermer menu ET bulle About -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        /* ----- MENU ----- */
+        const sideMenu = document.getElementById("sideMenu");
+        const closeMenu = document.getElementById("closeMenu");
+        const menuButton = document.getElementById("menuButton");
+
+        menuButton.addEventListener("click", () => {
+            sideMenu.classList.add("open");
+        });
+
+        closeMenu.addEventListener("click", () => {
+            sideMenu.classList.remove("open");
+        });
+
+
+        /* ----- ABOUT BUBBLE ----- */
+        const aboutButton = document.getElementById("aboutButton");
+        const aboutModal = document.getElementById("aboutModal");
+        const closeAbout = document.getElementById("closeAbout");
+
+        aboutButton.addEventListener("click", () => {
+            aboutModal.style.display = "flex";
+        });
+
+        closeAbout.addEventListener("click", () => {
+            aboutModal.style.display = "none";
+        });
+
+        // fermer si on clique en dehors
+        aboutModal.addEventListener("click", (e) => {
+            if (e.target.id === "aboutModal") {
+                aboutModal.style.display = "none";
+            }
+        });
+
+    });
+    </script>
+
+</body>
+</html>

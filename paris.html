@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafés à Paris</title>
+
+<style>
+/* --- BODY ET BACKGROUND FIXE --- */
+body {
+    font-family: "BBH Sans Hegarty", sans-serif;
+    margin: 0;
+    padding: 10px;
+    background: url('PARIS.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    color: black; /* texte par défaut noir pour lisibilité */
+}
+
+/* --- TITRE --- */
+h1 { 
+    text-align: center; 
+    margin-bottom: 20px; 
+    font-size: 10rem; 
+    font-weight: 900; /* point-virgule corrigé */
+    color: #fafe16; /* jaune pour le titre */
+    letter-spacing: 5px;
+}
+
+/* --- CARTE DE CAFÉ --- */
+.cafe {
+    background: white; 
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cafe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.cafe img { 
+    width: 180px; 
+    height: 130px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+}
+
+.cafe-name { 
+    font-size: 2rem; 
+    font-weight: bold; 
+    color: black; /* texte des cafés noir */
+    cursor: pointer; 
+}
+
+.cafe-name:hover { 
+    color: #0b0301; 
+}
+
+.district { 
+    color: #555; 
+    font-size: 1.5rem; 
+    margin-top: 5px; 
+}
+
+.details { 
+    display: none; 
+    background: #fff; 
+    padding: 15px; 
+    margin-top: 10px; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+}
+
+/* --- BOUTON FERMER --- */
+.city-close-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 9999;
+    font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<h1>PARIS</h1>
+<span class="city-close-btn" onclick="history.back()">×</span>
+
+
+<!-- --------------------------------------------------------------- -->
+<!-- ------------------------   PARIS 1   --------------------------- -->
+<!-- --------------------------------------------------------------- -->
+
+<div class="cafe">
+    <img src="motors.jpg" alt="Motors Coffee">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsMotors')">MOTORS COFFEE</span>
+        <p class="district">PARIS 1</p>
+        <div class="details" id="detailsMotors">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/AbGzJhgKf64YXzNm8" target="_blank">7 Rue des Halles, 75001 Paris</a></p>
+            <p><strong>Description:</strong> My mother and I stumbled upon this café by chance. It was already quite busy, so after waiting in line for a little while, we were able to sit down and enjoy our coffees. The atmosphere was really cool, young, and cheerful, and we had a great time. The coffees were good and the cookies were excellent. I will definitely be back to try the other pastries and sit outside when the weather permits!</p>
+            <p><strong>Order:</strong> 1 cappucino, 1 americano, 1 cookie</p>
+            <p><strong>Price:</strong> 10-15 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="CaféNuances.jpeg" alt="CaféNuances">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsCaféNuances')">CAFE NUANCES - VENDOME</span>
+        <p class="district">PARIS 1</p>
+        <div class="details" id="detailsCaféNuances">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/H8gpfe2RumSn9U6K9" target="_blank">25 Rue Danielle Casanova, 75001 Paris</a></p>
+            <p><strong>Description:</strong> I had seen this café a lot on social media! There are four locations in Paris, and they are generally quite aesthetically pleasing! Their cappuccino was good (as expected), and my friends loved the rose matcha, which they said was perfectly balanced. The only downside is that they don't serve their drinks in cups, but it was still nice to visit!</p>
+            <p><strong>Order:</strong> 1 cappuccino, 2 rose matchas</p>
+            <p><strong>Price:</strong> 15-20 €</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- --------------------------------------------------------------- -->
+<!-- ------------------------   PARIS 2   --------------------------- -->
+<!-- --------------------------------------------------------------- -->
+
+<div class="cafe">
+    <img src="Matamata.jpeg" alt="Matamata">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsMatamata')">MATAMATA COFFEE BAR</span>
+        <p class="district">PARIS 2</p>
+        <div class="details" id="detailsMatamata">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/L4k7V7uwbkmYDuoZ6" target="_blank">58 Rue d'Argout, 75002 Paris</a></p>
+            <p><strong>Description:</strong> This little café was really cute, located on a lively side street. We were able to sit outside and enjoy our cappuccinos, which were excellent. The cookies were also very good. I recommend!</p>
+            <p><strong>Order:</strong> 2 cappuccino, 2 cookies</p>
+            <p><strong>Price:</strong> 15-20 €</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- --------------------------------------------------------------- -->
+<!-- ------------------------   PARIS 3   --------------------------- -->
+<!-- --------------------------------------------------------------- -->
+
+<div class="cafe">
+    <img src="CSC.jpeg" alt="CSC">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsCSC')">COFFEE SPECIALTY COFFEE</span>
+        <p class="district">PARIS 3</p>
+        <div class="details" id="detailsCSC">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/RnzKMFj7Z5CjWND8A" target="_blank">40 Rue Chapon, 75003 Paris</a></p>
+            <p><strong>Description:</strong> My mother and I tried this coffe shop a weekend morning, quite early. Located in the Marais district, it's charming from the outside and wamr and inviting inside. The Brazilian couple who runs the café is absolutely lovely, and the food looked delicious. We went for a carrot cake and a savory roll : the carrot cake was exceptional, and the roll was also very good! I loved this place and I'll definitely be back!!</p>
+            <p><strong>Order:</strong> 2 cappuccino, 1 carrot cake, 1 savory roll</p>
+            <p><strong>Price:</strong> 20-25 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="Arabica.jpeg" alt="Arabica">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsArabica')">ARABICA PARIS OBERKAMPF</span>
+        <p class="district">PARIS 3</p>
+        <div class="details" id="detailsArabica">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/bLywG9XWwHzFxdkA8" target="_blank">26 Bd des Filles du Calvaire, 75003 Paris</a></p>
+            <p><strong>Description:</strong> I think that there are 3 locations of this coffee shop. I loved that they specialize in lattes, offering different types, each with its own unique characteristics. We tried the "Dark Latte" and the "Kyoto Latte", both were really good.</p>
+            <p><strong>Order:</strong> 2 latte, 1 carrot cake</p>
+            <p><strong>Price:</strong> 10-15 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="Hanoi.jpeg" alt="Hanoi">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsHanoi')">HA NOI 1988 FLOWERS AND ARCHIVES</span>
+        <p class="district">PARIS 3</p>
+        <div class="details" id="detailsHanoi">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/bLywG9XWwHzFxdkA8" target="_blank">51 Rue des Archives, 75003 Paris</a></p>
+            <p><strong>Description:</strong> I tried Ha Noi 1988 Flowers and Archives with my father and sister, and it was my first time trying Vietnamese coffee. I like my coffee without sugar, so I was not really fan of the "Bac Siu Nong" I tried (which was a Vietnamese latte), but the place was really pretty, full of flowers. </p>
+            <p><strong>Order:</strong> 1 Phin ca phe sua, 1 Bac siu nong, 1 matcha latte</p>
+            <p><strong>Price:</strong> 15-20 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="Recto.jpeg" alt="Rectoverso">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsRectoverso')">RECTO VERSO</span>
+        <p class="district">PARIS 3</p>
+        <div class="details" id="detailsRectoverso">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/Hjv5FUuRfusX1qJQA" target="_blank">6 Rue Portefoin, 75003 Paris</a></p>
+            <p><strong>Description:</strong> Recto Verso was THE instagrammable and trendy coffee shop. However, even though I am usually not a fan of these coffee shops, I fell for this one. It was so cozy and charming, the baristas were so cool and kind, and the pastries looked AMAZING. I will definitely be back to sit by the window, read a book and taste their bananabread!!!</p>
+            <p><strong>Order:</strong> 1 cappuccino, 1 cortado, 1 flat white, 1 cookie</p>
+            <p><strong>Price:</strong> 15-20 €</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- --------------------------------------------------------------- -->
+<!-- ------------------------   PARIS 4   --------------------------- -->
+<!-- --------------------------------------------------------------- -->
+
+<div class="cafe">
+    <img src="Noir.jpeg" alt="Noir">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsNoir')">NOIR - COFFEE SHOP & TORREFACTEUR</span>
+        <p class="district">PARIS 4</p>
+        <div class="details" id="detailsNoir">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/L4k7V7uwbkmYDuoZ6" target="_blank">63 Rue Saint-Louis en l'Ile, 75004 Paris</a></p>
+            <p><strong>Description:</strong> Located on "Ile Saint Louis", Noir was a really nice place to take a break! Many locations exist!</p>
+            <p><strong>Order:</strong> 3 cappuccino, 1 matcha</p>
+            <p><strong>Price:</strong> 20-25 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="MYFermentation.jpeg" alt="MYFermentation">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsMYFermentation')">MY FERMENTATION</span>
+        <p class="district">PARIS 4</p>
+        <div class="details" id="detailsMYFermentation">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/A2RGojx3JNjzmx8L9" target="_blank">3 Rue Saint-Bon, 75004 Paris</a></p>
+            <p><strong>Description:</strong> The concept of this coffee shop is to include fermeted products in many preparations. I loved the idea, but a little less the brownie-mochi served with amazake instead of the custard. The coffee was very good, and my sister loved her omelette palace,with a miso-butter...  </p>
+            <p><strong>Order:</strong> 1 cappuccino,1 flat white, 1 matcha latte, 1 kombucha, 1 omelette palace, 1 brownie </p>
+            <p><strong>Price:</strong> 35-40 €</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- --------------------------------------------------------------- -->
+<!-- ------------------------   PARIS 5   --------------------------- -->
+<!-- --------------------------------------------------------------- -->
+
+<div class="cafe">
+    <img src="ARAKU.jpeg" alt="Araku">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsAraku')">ARAKU COFFEE</span>
+        <p class="district">PARIS 5</p>
+        <div class="details" id="detailsAraku">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/zoBTtraa7B19xEpR6" target="_blank">18 Rue Soufflot, 75005 Paris</a></p>
+            <p><strong>Description:</strong> The place was really nice, but I didn't really like the food...Well located tho!</p>
+            <p><strong>Order:</strong> 2 cappuccino, 1 cookie</p>
+            <p><strong>Price:</strong> 10-15 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="ChanceuxSandwich.jpeg" alt="Chanceux">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsChanceux')">CHANCEUX</span>
+        <p class="district">PARIS 5</p>
+        <div class="details" id="detailsChanceux">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/2F2KeL1Mj4GJsWK2A" target="_blank">63 Rue Galande, 75005 Paris</a></p>
+            <p><strong>Description:</strong> I LOVED THIS COFFE SHOP!!! The sandwiches were AMAZING, the banana bread was one of the best I ever tasted, and the coffee was just perfect! I will definitely go back!</p>
+            <p><strong>Order:</strong> 2 Shnitzel, 1 mushroom melt, 1 portobello, 3 cappuccino, 1 matcha latte, 1 banana bread</p>
+            <p><strong>Price:</strong> 70-75 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="Frappé.jpeg" alt="Frappé">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsFrappé')">FRAPPE COFFEE SHOP</span>
+        <p class="district">PARIS 5</p>
+        <div class="details" id="detailsFrappé">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/pceMQWuZ4ri6oojh6" target="_blank">20 Rue Monge, 75005 Paris</a></p>
+            <p><strong>Description:</strong> I would not recommend...Long wait time, coffee not so good...</p>
+            <p><strong>Order:</strong> 1 cappuccino</p>
+            <p><strong>Price:</strong> 0-5 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="helen.jpeg" alt="Helen">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsHelen')">HELEN'S BOOK</span>
+        <p class="district">PARIS 5</p>
+        <div class="details" id="detailsHelen">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/whyen37RX24fY1xPA" target="_blank">8B Rue Claude Bernard, 75005 Paris</a></p>
+            <p><strong>Description:</strong> What's cool with this place is that you can use your computer. However, I didn't really like the coffee, nor the pastries. The place is also a bit dark...</p>
+            <p><strong>Order:</strong> 1 cappuccino, 1 cookie</p>
+            <p><strong>Price:</strong> 5-10 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="background.jpeg" alt="background">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsbackground')">BACKGROUND COFFEE</span>
+        <p class="district">PARIS 5</p>
+        <div class="details" id="detailsbackground">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/hsSj5y9ZLzTcBXsi8" target="_blank">Rue Saint Jacques, 75005 Paris</a></p>
+            <p><strong>Description:</strong> One of my favorite places!!! The owners are adorable, the ambiance is really soothing, and I just feel really good there. The coffee, the cookies, the onigiris, I adored everything! I went back several times, and I will definitely continue!</p>
+            <p><strong>Order:</strong> 1 cappuccino, 1 cookie, 1 onigiri</p>
+            <p><strong>Price:</strong> 10-15 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="crible.jpeg" alt="crible">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailscrible')">CRIBLE</span>
+        <p class="district">PARIS 5</p>
+        <div class="details" id="detailscrible">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/tHZu1PTKwa786sPU9" target="_blank">75 Rue Buffon, 75005 Paris</a></p>
+            <p><strong>Description:</strong> Basic adn small :/, but the barista was really kind</p>
+            <p><strong>Order:</strong> cappuccino, matcha, cookies</p>
+            <p><strong>Price:</strong> 15-20 €</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- --------------------------------------------------------------- -->
+<!-- ------------------------   PARIS 6   --------------------------- -->
+<!-- --------------------------------------------------------------- -->
+
+<div class="cafe">
+    <img src="Café d'auteurs.jpg" alt="Café d'Auteur">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsAuteur')">CAFE D'AUTEUR - SPECIALTY COFFEE SHOP & ROASTER</span>
+        <p class="district">PARIS 6</p>
+        <div class="details" id="detailsAuteur">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/dXRGeiNc3a7iBYKCA" target="_blank">39 Rue Mazarine, 75006 Paris</a></p>
+            <p><strong>Description:</strong> My coup de coeur. Café d'auteur not only has the best specialty coffee, but there is something about the jazz, the wood tables and the lights that make this place so special. I like to go there when I have friends or family visiting. Recently, I tried the cheesecake and it was so good! The only downside is that it can be quite expensive...a cappuccino cost 8€ minimum...  </p>
+            <p><strong>Order:</strong> 1 espresso,2 cappuccino, 1 matcha</p>
+            <p><strong>Price:</strong> 20-25 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="dengo.jpeg" alt="Dengo">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsDengo')">DENGO</span>
+        <p class="district">PARIS 6</p>
+        <div class="details" id="detailsDengo">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/57qsNL11VTDW9qyu5" target="_blank">58 Rue Bonaparte, 75006 Paris</a></p>
+            <p><strong>Description:</strong> Best hot chocolates in Paris!!! This Brazilian place proposes creamy hot chcolates based on oat milk, as well as a huge variety of chocolate. It is a really nice place to meet friends, if you are lucky enough to have a free table! </p>
+            <p><strong>Order:</strong> 2 hot chocolates</p>
+            <p><strong>Price:</strong> 10-15 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="bonjourjacob.jpeg" alt="Bonjour Jacob">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsBonjourJacob')">BONJOUR JACOB</span>
+        <p class="district">PARIS 6</p>
+        <div class="details" id="detailsBonjourJacob">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/tHpXzTHkakQ3MHi49" target="_blank">30 Rue Dauphine, 75006 Paris</a></p>
+            <p><strong>Description:</strong> TO DO </p>
+            <p><strong>Order:</strong> 2 cookies, 1 latte</p>
+            <p><strong>Price:</strong> 10-15 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="TenBelles.jpeg" alt="TenBelles">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsTenBelles')">TEN BELLES</span>
+        <p class="district">PARIS 6</p>
+        <div class="details" id="detailsTenBelles">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/wHsatbybHJdYxHpX7" target="_blank">53 Rue du Cherche-Midi, 75006 Paris</a></p>
+            <p><strong>Description:</strong> Amazing cappuccino and cookies, I highly recommend this place!</p>
+            <p><strong>Order:</strong> 2 flat white, 1 cappuccino, 1 cookie</p>
+            <p><strong>Price:</strong> 10-15 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="chezcoffee.jpeg" alt="chezcoffee">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailschezcoffee')">CHEZ COFFEE&CO</span>
+        <p class="district">PARIS 6</p>
+        <div class="details" id="detailschezcoffee">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/x9hCVpiPJhQ7ioNc8" target="_blank">76 Rue de Seine, 75006 Paris</a></p>
+            <p><strong>Description:</strong> Great place to study!I like to come here when I am not motivated to study. I order one cappuccino and one sweet treat, and I usually stay around 1-2 hours!</p>
+            <p><strong>Order:</strong> 1 cappuccino, 1 cookie</p>
+            <p><strong>Price:</strong> 5-10 €</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- --------------------------------------------------------------- -->
+<!-- ------------------------   PARIS 7   --------------------------- -->
+<!-- --------------------------------------------------------------- -->
+
+<div class="cafe">
+    <img src="SaintPearl.jpeg" alt="SaintPearl">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsSaintPearl')">SAINT PEARL SAINT-GERMAIN</span>
+        <p class="district">PARIS 7</p>
+        <div class="details" id="detailsSaintPearl">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/uDHEPLhMNMf4urMh7" target="_blank">38 Rue des Saints-Pères, 75007 Paris</a></p>
+            <p><strong>Description:</strong> A cute place to brunch! Their food is really good, as well as their coffee. I am not a huge fan of their pastries, but I highly recommend to try savory food!</p>
+            <p><strong>Order:</strong> 1 Toast&Omelette Spirale, 1 Seoul Toast, 1 flat white, 1 cappuccino, cappuccinos</p>
+            <p><strong>Price:</strong> 35-40 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="certified.jpeg" alt="certified">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailscertified')">CERTIFIED CAFE</span>
+        <p class="district">PARIS 7</p>
+        <div class="details" id="detailscertified">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/EUgtq7wGMD7DP7mX8" target="_blank">83P Rue du Bac, 75007 Paris</a></p>
+            <p><strong>Description:</strong> Great study spot! However, it gets crowded really quick!</p>
+            <p><strong>Order:</strong> 1 cappuccino, 1 cookie</p>
+            <p><strong>Price:</strong> 5-10 €</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- --------------------------------------------------------------- -->
+<!-- ------------------------   PARIS 9   --------------------------- -->
+<!-- --------------------------------------------------------------- -->
+
+<div class="cafe">
+    <img src="blondie.jpeg" alt="Blondie Coffee Shop">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsBlondie')">BLONDIE COFFEE SHOP</span>
+        <p class="district">PARIS 9</p>
+        <div class="details" id="detailsBlondie">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/cUkYAKnEEiTFtjEv6" target="_blank">40 Rue Saint Georges, 75009 Paris</a></p>
+            <p><strong>Description:</strong> Many locations, chill vibes</p>
+            <p><strong>Order:</strong> 1 cappuccino</p>
+            <p><strong>Price:</strong> 1-5 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="Liperli.jpeg" alt="Liperli">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsLiperli')">LIPERLI COFFEE - TORREFACTEUR DE CAFE</span>
+        <p class="district">PARIS 9</p>
+        <div class="details" id="detailsLiperli">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/1TmYmjuwKkVinUhj8" target="_blank">33 Rue de Douai, 75009 Paris</a></p>
+            <p><strong>Description:</strong> Small neighborhood coffee shop, very cute!</p>
+            <p><strong>Order:</strong> 2 cappuccino, 1 matcha</p>
+            <p><strong>Price:</strong> 10-15 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="seamer.jpeg" alt="seamer">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsseamer')">SEAMER COFFEE SHOP</span>
+        <p class="district">PARIS 9</p>
+        <div class="details" id="detailsseamer">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/g1TUZUbEEPq4z8sB6" target="_blank">37 Rue Saint-Georges, 75009 Paris</a></p>
+            <p><strong>Description:</strong> The matcha was ART and delicious, according to my sister. I didn't really like the banana bread and my cappuccino, but I highly recommend for matcha lovers!</p>
+            <p><strong>Order:</strong> 1 cappuccino, 1 rose matcha, 1 banana bread</p>
+            <p><strong>Price:</strong> 15-20 €</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- --------------------------------------------------------------- -->
+<!-- ------------------------   PARIS 10   -------------------------- -->
+<!-- --------------------------------------------------------------- -->
+
+<div class="cafe">
+    <img src="buddy.jpeg" alt="buddy">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsbuddy')">BUDDY BUDDY - NUT BUTTER COFFEE BAR</span>
+        <p class="district">PARIS 10</p>
+        <div class="details" id="detailsbuddy">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/Fj1DqCCzg6PxvsDv9" target="_blank">15 Rue de Marseille, 75010 Paris</a></p>
+            <p><strong>Description:</strong> I was really excited about trying this place. Unfortunately, I was a bit disappointed : the "praliné chocolat" was rather bland, and I excepted to feel a bit more the nut butter. However, my friends liked their drinks, and the coffee shop was really pretty! Also, it's close to the Canal Saint Martin!  </p>
+            <p><strong>Order:</strong> 1 praliné chocolat</p>
+            <p><strong>Price:</strong> 5-10 €</p>
+        </div>
+    </div>
+</div>
+
+
+<!-- --------------------------------------------------------------- -->
+<!-- ------------------------   PARIS 14   -------------------------- -->
+<!-- --------------------------------------------------------------- -->
+
+<div class="cafe">
+    <img src="AKA.jpeg" alt="AKA">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsAKA')">AKA COFFEE SHOP</span>
+        <p class="district">PARIS 14</p>
+        <div class="details" id="detailsAKA">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/ru5gBez1fnnS7FPm6" target="_blank">25 Rue Mouton-Duvernet, 75014 Paris</a></p>
+            <p><strong>Description:</strong> Neighborhood place, nothing exceptionnal...</p>
+            <p><strong>Order:</strong> 2 cappuccino, 2 croissant</p>
+            <p><strong>Price:</strong> 10-15 €</p>
+        </div>
+    </div>
+</div>
+
+<div class="cafe">
+    <img src="Terre.jpeg" alt="Terres de café">
+    <div>
+        <span class="cafe-name" onclick="toggleDetails('detailsTerresdecafé')">TERRES DE CAFE</span>
+        <p class="district">PARIS 14</p>
+        <div class="details" id="detailsTerresdecafé">
+            <p><strong>Adresse:</strong> <a href="https://maps.app.goo.gl/ttXTCE9zcc2H9Z6s7" target="_blank">32 Rue Daguerre, 75014 Paris</a></p>
+            <p><strong>Description:</strong> This little neighborhood coffeeshop is really authentic and the coffee was really good!  </p>
+            <p><strong>Order:</strong> 2 cappuccino, 1 carrot cake</p>
+            <p><strong>Price:</strong> 10-15 €</p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+function toggleDetails(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
+    el.scrollIntoView({behavior: "smooth"});
+}
+</script>
+
+</body>
+</html>
